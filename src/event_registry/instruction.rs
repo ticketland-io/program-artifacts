@@ -6,6 +6,6 @@ use borsh::BorshSerialize;
 /// This is the program instruction data i.e. fn params
 #[derive(BorshSerialize)]
 pub struct UpdateEventNftUriIx {
-  event_nft: Pubkey,
-  new_uri: String,
+  pub event_nft: Pubkey,
+  pub new_uri: String,
 }
