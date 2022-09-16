@@ -2,9 +2,9 @@ use solana_sdk::{
   pubkey::Pubkey,
 };
 
-pub fn event_nft(state: &Pubkey, event_id: String) -> (Pubkey, u8) {
+pub fn event_nft(state: &Pubkey, event_id: &str) -> (Pubkey, u8) {
   Pubkey::find_program_address(
-    &[b"event_nft", state.as_ref(), &event_id.as_bytes()],
+    &[b"event_nft", state.as_ref(), event_id.as_bytes()],
     &super::program_id(),
   )
 }
