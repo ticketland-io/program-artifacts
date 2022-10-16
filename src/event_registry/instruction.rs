@@ -21,5 +21,5 @@ impl InstructionData for UpdateEventNftUriIx {
     let mut d = [246, 207, 102, 214, 220, 81, 202, 182].to_vec();
     d.append(&mut self.try_to_vec().expect("Should always serialize"));
     d
-}
+  }
 }
