@@ -1,11 +1,11 @@
-use std::ops::Deref;
-
 pub struct EventId(String);
 
-impl Deref for EventId {
-  type Target = String;
+impl EventId{
+  pub fn db_val(&self) -> String {
+    self.0.clone()
+  }
 
-  fn deref(&self) -> &Self::Target {
-    &self.0
+  pub fn val(&self) -> String {
+    self.0.replace("-", "").clone()
   }
 }
