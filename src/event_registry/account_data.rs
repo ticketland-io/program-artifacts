@@ -1,4 +1,4 @@
-pub struct EventId(String);
+pub struct EventId(pub String);
 
 impl EventId{
   pub fn db_val(&self) -> String {
