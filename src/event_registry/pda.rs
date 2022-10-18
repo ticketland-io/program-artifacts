@@ -1,9 +1,7 @@
-use std::str::FromStr;
 use solana_sdk::{
   pubkey::Pubkey,
 };
-
-const METAPLEX_ID: &str = "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s";
+use solana_web3_rust::constants::METAPLEX_PROGRAM;
 
 pub fn event(state: &Pubkey, event_id: &str) -> (Pubkey, u8) {
   Pubkey::find_program_address(
@@ -29,7 +27,7 @@ pub fn event_nft_authority(state: &Pubkey) -> (Pubkey, u8) {
 // Metaplex PDA
 pub fn event_nft_metadata(event_nft: &str) -> (Pubkey, u8) {
   Pubkey::find_program_address(
-    &[b"metadata", METAPLEX_ID.as_bytes(), event_nft.as_bytes()],
-    &Pubkey::from_str(METAPLEX_ID).unwrap(),
+    &[b"metadata", METAPLEX_PROGRAM.as_ref(), event_nft.as_bytes()],
+    &METAPLEX_PROGRAM,
   )
 }
