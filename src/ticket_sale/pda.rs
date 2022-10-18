@@ -2,6 +2,22 @@ use solana_sdk::{
   pubkey::Pubkey,
 };
 
+pub fn sale(
+  state: &Pubkey,
+  ticket_type_index: u8,
+  event_id: [u8; 32],
+) -> (Pubkey, u8) {
+  Pubkey::find_program_address(
+    &[
+      b"sale",
+      state.as_ref(),
+      ticket_type_index.to_string().as_ref(),
+      &event_id
+    ],
+    &super::program_id(),
+  )
+}
+
 pub fn seat_verification(sale: &str, seat_index: u32, seat_name: &String) -> (Pubkey, u8) {
   Pubkey::find_program_address(
     &[
