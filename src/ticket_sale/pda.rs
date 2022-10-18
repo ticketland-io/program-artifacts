@@ -29,3 +29,10 @@ pub fn seat_verification(sale: &str, seat_index: u32, seat_name: &String) -> (Pu
     &super::program_id(),
   )
 }
+
+pub fn cpi_authority(state: &Pubkey) -> (Pubkey, u8) {
+  Pubkey::find_program_address(
+    &[b"ticket_sale:cpi_authority", state.as_ref()],
+    &super::program_id(),
+  )
+}
