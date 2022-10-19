@@ -24,3 +24,18 @@ impl InstructionData for OperatorPurchaseIx {
     d
   }
 }
+
+#[derive(BorshSerialize)]
+pub struct VerifySeatIx {
+  seat_index: u32,
+  seat_name: String,
+  merkle_proof: Vec<[u8; 32]>,
+}
+
+impl InstructionData for VerifySeatIx {
+  fn data(&self) -> Vec<u8> {
+    let mut d = [48, 157, 50, 191, 185, 53, 88, 220].to_vec();
+    d.append(&mut self.try_to_vec().expect("Should always serialize"));
+    d
+  }
+}

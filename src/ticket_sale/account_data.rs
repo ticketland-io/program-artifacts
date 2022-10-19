@@ -43,3 +43,9 @@ pub struct TicketType {
   pub merkle_root: [u8; 32],
   pub seat_range: SeatRange,
 }
+
+#[derive(BorshDeserialize)]
+pub struct SeatVerification {
+  pub bump: u8,
+  pub verified: bool,
+}
