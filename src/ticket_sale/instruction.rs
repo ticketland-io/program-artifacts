@@ -7,9 +7,9 @@ use crate::ix::InstructionData;
 /// This is the program instruction data i.e. fn params
 #[derive(BorshSerialize)]
 pub struct OperatorPurchaseIx {
-  seat_index: u32,
-  seat_name: String,
-  recipient: Pubkey,
+  pub seat_index: u32,
+  pub seat_name: String,
+  pub recipient: Pubkey,
 }
 
 // We follow the same approach that Anchor does. The reason is that we need to provide the instuction code as part of the tx 
