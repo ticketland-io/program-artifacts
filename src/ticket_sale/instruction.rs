@@ -27,9 +27,9 @@ impl InstructionData for OperatorPurchaseIx {
 
 #[derive(BorshSerialize)]
 pub struct VerifySeatIx {
-  seat_index: u32,
-  seat_name: String,
-  merkle_proof: Vec<[u8; 32]>,
+  pub seat_index: u32,
+  pub seat_name: String,
+  pub merkle_proof: Vec<[u8; 32]>,
 }
 
 impl InstructionData for VerifySeatIx {
