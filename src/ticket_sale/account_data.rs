@@ -14,7 +14,6 @@ pub struct Sale {
   pub ticket_type: TicketType,
 }
 
-
 #[derive(BorshSerialize, BorshDeserialize)]
 pub enum SaleType {
   Free,
