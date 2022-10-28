@@ -1,6 +1,7 @@
 use std::str::FromStr;
 use solana_sdk::pubkey::Pubkey;
 
+pub mod instruction;
 pub mod pda;
 
 pub fn program_id() -> Pubkey {
