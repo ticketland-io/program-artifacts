@@ -1,6 +1,6 @@
 pub struct EventId(pub String);
 
-impl EventId{
+impl EventId {
   pub fn db_val(&self) -> String {
     self.0.clone()
   }
