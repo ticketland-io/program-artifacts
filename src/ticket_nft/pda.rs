@@ -16,10 +16,10 @@ pub fn ticket_nft(
 
 pub fn ticket_metadata(
   state: &Pubkey,
-  ticket_nft: &str,
+  ticket_nft: &Pubkey,
 ) -> (Pubkey, u8) {
   Pubkey::find_program_address(
-    &[b"ticket_metadata", state.as_ref(), ticket_nft.as_bytes()],
+    &[b"ticket_metadata", state.as_ref(), ticket_nft.as_ref()],
     &super::program_id(),
   )
 }
