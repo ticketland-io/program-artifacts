@@ -36,3 +36,15 @@ pub fn cpi_authority(state: &Pubkey) -> (Pubkey, u8) {
     &super::program_id(),
   )
 }
+
+pub fn seat_reservation(sale: &Pubkey, seat_index: u32, seat_name: &String) -> (Pubkey, u8) {
+  Pubkey::find_program_address(
+    &[
+      b"seat_reservation",
+      sale.as_ref(),
+      seat_index.to_string().as_ref(),
+      seat_name.as_ref(),  
+    ],
+    &super::program_id(),
+  )
+}
