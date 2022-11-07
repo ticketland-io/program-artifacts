@@ -1,4 +1,6 @@
+use std::ops::{Deref,DerefMut};
 use borsh::{BorshSerialize, BorshDeserialize};
+use crate::common::account_data::Reservation;
 
 #[derive(BorshSerialize, BorshDeserialize)]
 pub struct Sale {
@@ -47,4 +49,21 @@ pub struct TicketType {
 pub struct SeatVerification {
   pub bump: u8,
   pub verified: bool,
+}
+
+#[derive(BorshSerialize, BorshDeserialize)]
+pub struct SeatReservation(pub Reservation);
+
+impl Deref for SeatReservation {
+  type Target = Reservation;
+
+  fn deref(&self) -> &Self::Target {
+    &self.0
+  }
+}
+
+impl DerefMut for SeatReservation {
+  fn deref_mut(&mut self) -> &mut Self::Target {
+    &mut self.0
+  }
 }
