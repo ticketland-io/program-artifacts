@@ -1,9 +1,9 @@
 use borsh::BorshSerialize;
-use solana_sdk::pubkey::Pubkey;
-use crate::{
-  ix::InstructionData,
-  common::account_data::Slot,
+use solana_sdk::{
+  pubkey::Pubkey,
+  slot_history::Slot,
 };
+use crate::ix::InstructionData;
 
 /// This is the program instruction data i.e. fn params
 #[derive(BorshSerialize)]
@@ -42,14 +42,14 @@ impl InstructionData for VerifySeatIx {
 }
 
 #[derive(BorshSerialize)]
-pub struct ReserveSeat {
+pub struct ReserveSeatIx {
   pub seat_index: u32,
   pub seat_name: String,
   pub duration: Slot,
   pub recipient: Pubkey,
 }
 
-impl InstructionData for ReserveSeat {
+impl InstructionData for ReserveSeatIx {
   fn data(&self) -> Vec<u8> {
     let mut d = [42, 147, 222, 136, 162, 134, 183, 168].to_vec();
     d.append(&mut self.try_to_vec().expect("Should always serialize"));
