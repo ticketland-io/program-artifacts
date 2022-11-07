@@ -26,3 +26,10 @@ pub fn sell_listing(
     &super::program_id(),
   )
 }
+
+pub fn sell_listing_reservation(sell_listing: &Pubkey) -> (Pubkey, u8) {
+  Pubkey::find_program_address(
+    &[b"sell_listing_reservation", sell_listing.as_ref()],
+    &super::program_id(),
+  )
+}
