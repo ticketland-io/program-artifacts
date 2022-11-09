@@ -6,7 +6,7 @@ fn index_to_byte_and_bit(index: u32) -> (usize, usize, usize) {
   (byte, bit, mask)
 }
 
-pub fn is_set<const COUNT: usize>(index: u32, bitmap: &[u8; COUNT]) -> bool {
+pub fn is_set(index: u32, bitmap: &Vec<u8>) -> bool {
   let (byte, bit, _) = index_to_byte_and_bit(index);
 
   (bitmap[byte] >> bit) % 2 == 1
