@@ -37,6 +37,7 @@ pub struct SeatRange {
 
 #[derive(BorshSerialize, BorshDeserialize)]
 pub struct TicketType {
+  pub name: String,
   pub n_tickets: u32,
   pub sale_type: SaleType,
   pub sale_start_time: i64,
