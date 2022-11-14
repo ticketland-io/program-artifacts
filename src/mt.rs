@@ -15,7 +15,7 @@ pub fn create_ticket_type_mt(seat_indexes: Vec<(u32, u32)>, n_tickets: u32) -> M
   let mut seats = vec![null_leaf; n_tickets as usize];
 
   for seat_range in seat_indexes {
-    for i in seat_range.0..seat_range.1 {
+    for i in seat_range.0..seat_range.1 + 1 {
       // This handles the merkle tree of a simple venue i.e. seat index and seat name are the same
       seats[i as usize] = create_seat_leaf(i, &i.to_string());
     }
