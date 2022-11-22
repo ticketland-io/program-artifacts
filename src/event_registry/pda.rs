@@ -25,9 +25,9 @@ pub fn event_nft_authority(state: &Pubkey) -> (Pubkey, u8) {
 }
 
 // Metaplex PDA
-pub fn event_nft_metadata(event_nft: &str) -> (Pubkey, u8) {
+pub fn event_nft_metadata(event_nft: &Pubkey) -> (Pubkey, u8) {
   Pubkey::find_program_address(
-    &[b"metadata", METAPLEX_PROGRAM.as_ref(), event_nft.as_bytes()],
+    &[b"metadata", METAPLEX_PROGRAM.as_ref(), event_nft.as_ref()],
     &METAPLEX_PROGRAM,
   )
 }
