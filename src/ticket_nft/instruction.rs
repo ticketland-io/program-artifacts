@@ -12,7 +12,7 @@ pub struct SetTicketAttendedIx {
 
 impl InstructionData for SetTicketAttendedIx {
   fn data(&self) -> Vec<u8> {
-    let mut d = [167, 44, 23, 56, 62, 140, 237, 135].to_vec();
+    let mut d = [159, 194, 146, 186, 145, 129, 56, 4].to_vec();
     d.append(&mut self.try_to_vec().expect("Should always serialize"));
     d
 }
